@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Swiper demo</title>
+<!-- Demo styles -->
+<style>
+html, body {
+    position: relative;
+    height: 100%;
+}
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color:#000;
+    margin: 0;
+    padding: 0;
+}
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide > div {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper animated" >
+      <div class="swiper-slide">
+        <div>
+          <div><img src="img/slide1.jpg" /></div>
+          <h1>Slide 1</h1>
+          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Curabitur blandit tempus porttitor. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper.</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <div><img src="img/slide2.jpg" /></div>
+          <h1>Slide 2</h1>
+          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div>
+          <div><img src="img/slide3.jpg" /></div>
+          <h1>Slide 3</h1>
+          <p>Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum.</p>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <!-- Create handlebars IF condition when necessary to hide -->
+  <div class="swiper-button-prev"><i class="fa fa-angle-left"></i></div>
+  <div class="swiper-button-next"><i class="fa fa-angle-right"></i></div>
+
+  <div class="ob-bottom-nav">
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Initialize Swiper -->
+  <script>
+  var swiper = new Swiper('.swiper-container',{
+    direction: 'horizontal',
+    autoplay: true, // @TODO: Replace with Fliplet.Theme.get('vars')['autoplay']
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    grabCursor: true
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "{{name}}",
+  "package": "{{package}}",
+  "version": "1.0.0",
+  "icon": "img/icon.png",
+  "tags": ["key:value"],
+  "editableCss": "css/style.css",
+  "assets": [
+    "css/style.css"
+    "css/swiper.min.css",
+    "js/swiper.js"
+  ],
+  "dependencies": [
+    "jquery",
+    "bootstrap-css",
+    "font-awesome",
+    "animate"
+  ],
+  "jsVars": [
+    {
+      "key": "duration",
+      "name": "Transition duration",
+      "default": 300
+    },
+    {
+      "key": "titleLabel",
+      "name": "Title text",
+      "default": "Welcome!"
+    },
+    {
+      "key": "autoplay",
+      "name": "Autostart slider",
+      "default": false
+    },
+    {
+      "key": "fields",
+      "name": "Fields to display",
+      "default": [
+        {"a": 1,"b": "W"},{"a": 2,"b": "X"},
+        {"a": 3,"b": "Y"},{"a": 4,"b": "Z"}
+      ]
+    }
+  ]
+}

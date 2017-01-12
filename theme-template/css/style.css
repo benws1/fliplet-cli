@@ -1,0 +1,89 @@
+@import 'reset.css';
+
+/***
+* @group Typography
+* @subgroup Heading 1
+****/
+h1 {
+  /*@editable*/ color: $color-primary;
+  /*@editable*/ font-family: monospace;
+  /*@editable*/ font-weight: 200;
+  /*@editable*/ font-size: 24px;
+  /*@editable*/ margin-top: 35px;
+  /*@editable*/ margin-bottom: 0;
+}
+/***
+* @group Typography
+* @subgroup Heading 2
+****/
+h2 {
+  /*@editable*/ color: $color-primary;
+  /*@editable*/ font-family: monospace;
+  /*@editable*/ font-weight: 200;
+  /*@editable*/ font-size: 18px;
+  /*@editable*/ margin-top: 15px;
+  /*@editable*/ margin-bottom: 0;
+}
+p {
+  margin: 1em 0;
+}
+/***
+* @group Buttons
+* @subgroup Primary buttons
+****/
+.btn-primary {
+  /*@editable*/ background-color: dark-blue;
+  /*@editable*/ color: #fff;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Default buttons
+****/
+.btn-default {
+  /*@editable*/ background-color: white;
+  /*@editable*/ color: #555;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Success buttons
+****/
+.btn-success {
+  /*@editable*/ background-color: green;
+  /*@editable*/ color: #fff;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Danger buttons
+****/
+.btn-danger {
+  /*@editable*/ background-color: red;
+  /*@editable*/ color: #fff;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Warning buttons
+****/
+.btn-warning {
+  /*@editable*/ background-color: orange;
+  /*@editable*/ color: #fff;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Info buttons
+****/
+.btn-info {
+  /*@editable*/ background-color: blue;
+  /*@editable*/ color: #fff;
+  /*@editable*/ font-weight: 400 !important;
+  /*@editable*/ border-radius: 1px;
+}
