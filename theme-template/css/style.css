@@ -1,5 +1,9 @@
 @import 'reset.css';
 
+strong {
+  font-weight: bold;
+}
+
 /***
 * @group Typography
 * @subgroup Heading 1
@@ -86,4 +90,16 @@ p {
   /*@editable*/ color: #fff;
   /*@editable*/ font-weight: 400 !important;
   /*@editable*/ border-radius: 1px;
+}
+/***
+* @group Buttons
+* @subgroup Info buttons
+****/
+.bg {
+  width: 300px;
+  height: 380px;
+  margin: 0 auto;
+  background-size: contain;
+  background-image: url('../img/slide2.jpg');
+  background-position: center center;
 }
