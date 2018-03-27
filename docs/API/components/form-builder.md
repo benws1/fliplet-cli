@@ -2,9 +2,11 @@
 
 These public JS APIs will be automatically available in your screens once a **Form Builder** component is dropped into such screens.
 
-## Retrieve an instance
+## Retrieve an instance of a form
 
-Since you can have many forms into a screen, we provide a handy function to grab a specific instance by its form name or the first one available in the page when no input parameter is given.
+A Fliplet form instance contains all the form fields (eg, 'first-name'), the fields values (eg, 'Nick') and the field type (eg, in this case Nick was a text field so has type [ XXX  ]. Other field types include [number], [date] and [multiple choice]) 
+
+Since you may have many forms into a single screen, we provide a handy function to grab a specific form instance by its form name (the form name can be found in Fliplet Studio by clicking on the form and reviewing the settings). If no form name is specified or if there are multiple forms with the same name then the first one available in the page will be retrieved.
 
 ### `Fliplet.FormBuilder.get()`
 
@@ -17,8 +19,8 @@ Fliplet.FormBuilder.get()
     // Use form to perform various actions
   });
 
-// Gets the form instance named 'foo'
-Fliplet.FormBuilder.get('foo')
+// Gets the form instance named 'Contact names'. Note this is case sensitive
+Fliplet.FormBuilder.get('Contact names')
   .then(function (form) {
     // Use form to perform various actions
   });
@@ -28,9 +30,10 @@ The `form` instance variable above makes available the following instance method
 
 ## Instance methods
 
+### Entering data into a form programmatically 
 ### `form.load(Function)`
 
-Allows to overwrite all form field values with new data. Useful if you manually want to populate the form based on your data.
+Allows an app to overwrite form field values with new data. Useful if you manually want to populate the form based on your data. Note: the form field names are case sensitive. If no field name is found that matches the one supplied then the form instance will create a new field with the field name and value supplied.
 
 ```js
 Fliplet.FormBuilder.get().then(function (form) {
@@ -57,9 +60,23 @@ Fliplet.FormBuilder.get().then(function (form) {
 
 ---
 
-### `form.instance`
+### Retrieving a field or multiple fields
+A field is an object that has a `name`, `type` and `value`. You can either retrieve a single field by specifying its name or loop through all of the fields if you don't have a specific name to use. 
 
-Property that references a `Vue` object with more advanced properties of the form. For example, you can loop all form fields using the `instance.fields` array:
+### `form.field(String)`
+
+Retrieves a form field by its [@@@@@ Can we make this consistent is it a name or ID? or is the name the label? @@@@@@] `name` (the field name can be set in Fliplet Studio in the form component settings).
+
+```js
+Fliplet.FormBuilder.get().then(function (form) {
+  // Get the field with ID 'foo'
+  var field = form.field('foo');
+});
+```
+
+
+### `form.instance`
+This is a property that references a `Vue` object with more advanced properties of the form. For example, you can loop through all form fields using the `instance.fields` array:
 
 ```js
 Fliplet.FormBuilder.get().then(function (form) {
@@ -69,24 +86,18 @@ Fliplet.FormBuilder.get().then(function (form) {
 });
 ```
 
+For more information on `Vue` objects and how you can use them see [@@@@@@]
+
 --- 
 
-### `form.field(String)`
 
-Retrieves a form field by its ID (defined in Fliplet Studio interface).
-
-```js
-Fliplet.FormBuilder.get().then(function (form) {
-  // Get the field with ID 'foo'
-  var field = form.field('foo');
-});
-```
 
 ## Field methods
 
-### `form.val()`
+### Get of set the value of a field
+### `form.val()` [@@@@@@ should this be field.val()? @@@@@@]
 
-Gets or sets the value of a field.
+`form.val()` returns the value of a field whereas `form.val("Nick")` would set the value of the field to 'Nick'.
 
 ```js
 Fliplet.FormBuilder.get()
@@ -101,9 +112,10 @@ Fliplet.FormBuilder.get()
 
 --- 
 
+### Add an event listener that is triggered when a field is changed
 ### `form.change(Function)`
 
-Attaches event listeners to a field changed.
+Fields as 'changed' as a user starts to type (they don't necessarily need to click a submit button). The following is an example of an event listener that is triggered when a field is changed:
 
 ```js
 Fliplet.FormBuilder.get()
@@ -116,10 +128,10 @@ Fliplet.FormBuilder.get()
 ```
 
 --- 
-
+### Show or hide fields programmatically
 ### `form.toggle(Boolean)`
 
-Show and hide a field.
+You may wish to hide certain fields depending on a users previous actions. The `.toggle()` method allows you to do this easily. If toggle is given the value true the field will be displayed; a value of false will hide the field; and if no value is provided toggle will invert whatever the current visibility state is (ie, visible will become hidden and hidden will become visible)
 
 ```js
 Fliplet.FormBuilder.get()
@@ -130,7 +142,7 @@ Fliplet.FormBuilder.get()
   });
 ```
 
-Show and hide fields based on another field value
+Toggle can even accept boolean logic to specify when a toggle event should be triggered. 
 
 ```js
 Fliplet.FormBuilder.get()
@@ -146,7 +158,7 @@ Fliplet.FormBuilder.get()
   });
 ```
 
-## Hooks
+## Form hooks
 
 ### beforeFormSubmit
 
